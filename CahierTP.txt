@@ -9,51 +9,8 @@ docker run --detach \
 --volume /srv/gitlab/logs:/var/log/gitlab \
 --volume /srv/gitlab/data:/var/opt/gitlab \
 gitlab/gitlab-ce:latest
-Modifier /etc/hosts afin que gitlab.formation.org pointe sur localhostMise en place de 4 comptes Gitlab
-Adminisrateur :
-Owner / Maintener : Vous
-Reporter : Un fonctionnel
-Developpeur : Un développeur
-Avec le compte Owner,
-• Création d’un groupe de projet et avec affectation des membres dans leur différents rôles
-• Création d’un projet privé nommé delivery-service, en initialisant un dépôt. (Présence d’un
-fichier README)
-• Créer plusieurs milestone sur le projet
-Avec le compte reporter
-• Saisir plusieurs issues dont une s’appelant : « CRUD pour delivery-service »
-Discussion sur une issue entre Reporter/Mainteneur projet :
-• Saisir quelques commentaires
-Avec le compte owner/mainteneur, mise au planning et affectation
-Avec le compte developer, accès au tableau de bord et déplacement du post-it
-To Do -> Doing
-Option2 : Utilisation de gitlab.com
-Créer vous un compte sur gitlab.com, un groupe de projet , puis un projet
-Éventuellement, inviter d’autres stagiaires comme développeur sur votre projet
-Définir des milestone
-Saisir des issues
-Mettre en place des tableaux de bord
-Définir des labels (ex : DevOps, Bug, RFC, ...)
-Atelier 2.1 Commandes de base Git, merge et rebase
-2.1.1 Installation et configuration de Git
-Après l’installation de Git, le configurer afin de pouvoir committer
-$ git config --global user.name "John Doe"
-$ git config --global user.email johndoe@example.com2.1.2 Création de dépôt et premier commit
-Récupérer les sources fournies en reprenant le tag 2.1
-initialiser un dépôt, vérifier le fichier .gitignore et ajouter toutes les sources du projet
-2.1.3 Création de branche et fusion
-Basculer vers une nouvelle branche dev
-Éditer un fichier, par exemple le fichier pom.xml à la racine
-Revenir à la branche master
-Éditer le même fichier et les mêmes lignes
-Intégrer les modifications de dev dans master avec la commande merge, résoudre les conflits
-Visualisez les changements avec gitk
-Supprimer la branche dev
-2.1.4 Création de branche et rebase
-Effectuer les mêmes opérations que la section précédente.
-Rebaser ensuite dev sur master
-Faire une fusion rapide de master, (Sur master : git merge dev)
-Visualisez les changements avec gitk
-Supprimer la branche dev
+...
+
 A la fin du TP, l’historique du projet doit ressembler à :
 Atelier 2.2 : Workflow de collaboration GitlabFlow
 1. En tant que développeur sur gitlab, à partir de l’issue, 'CRUD pour delivery-service', créer une
@@ -62,28 +19,13 @@ Merge Request
 2. En tant que développeur sur son poste de travail, Récupérer la branche de la merge request, (git
 clone + git checkout)Construire l’application :
 ./mvnw clean package
+
 Exécuter l’appplication :
 java -jar target/delivery-service-0.0.1-SNAPSHOT.jar \
 --spring.profiles.active=swagger
-Accéder à l’application :
-http://localhost:8080/swagger-ui.html
-h ttp://localhost:8080/actuator
-3. Effectuer un
-git push
-4. En tant que developer sur gitlab, supprimer le préfixe WIP
-5. En tant que owner/mainteneur, faire une revue de code et ajouter comme commentaire : « Et les
-tests ? »
-6. Reprise du tag 2.2
-Exécuter les tests et s’assurer qu’ils passent :
-./mvnw test
-6. Push les modifications vers gitlab
-7. En tant que Owner/Mainteneur faire une revue de code
-8. Accepter le Merge Request et supprimer la branche
-9. En local, en tant que développeur supprimer la branche locale et exécuter
-git remote prune origin
-Atelier 3 : Outils de Build (Maven)
-3.1 Graphe de tâches et build reproductible
-Dans le répertoire de Maven $HOME/.m2/
+
+
+
 Créer un fichier settings.xml avec les lignes suivantes :
 <settings>
 <pluginGroups>
