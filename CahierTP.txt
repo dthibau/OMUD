@@ -95,6 +95,15 @@ Visualisez les nouveaux sources, en particulier :
 • StepDefsIntegrationTest.java : Le code glue fourni par le développeur
 Atelier 6 – Jenkins : Plateforme CI/CD
 6.1 Installation Jenkins
+
+export JENKINS_BASE=/home/dthibau/Formations/DevOps/MyWork/jenkins
+export JENKINS_HOME=${JENKINS_BASE}/.jenkins
+
+
+java -Xmx1024m -jar ${JENKINS_BASE}/jenkins.war --httpPort=8082
+
+
+
 Télécharger une distribution .war de Jenkins
 Démarrer le serveur dans un terminal via
 java -jar jenkins.war --httpPort=8082
